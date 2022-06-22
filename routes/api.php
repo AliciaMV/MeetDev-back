@@ -41,41 +41,41 @@ $router->group(['prefix' => 'api/secure', 'middleware' => 'jwt.auth', 'jwt.refre
 
     //verified email address routes
     $router->group(['middleware' => 'verified'], function() use ($router){
-      /**
-       * API secure users related routes
-       */
-      $router->group(['prefix' => '/users'], function () use ($router) {
-          $router->post('/logout', 'AuthController@logout');
-          $router->put('/{id}', 'UsersController@updateUser');
-          $router->get('/me', 'AuthController@meNoJson');
-          $router->get('/search', 'UsersController@getDevSearchResults');
-          $router->get('/contact', 'MailController@contactUser');
-      });
+        /**
+         * API secure users related routes
+         */
+        $router->group(['prefix' => '/users'], function () use ($router) {
+            $router->post('/logout', 'AuthController@logout');
+            $router->put('/{id}', 'UsersController@updateUser');
+            $router->get('/me', 'AuthController@meNoJson');
+            $router->get('/search', 'UsersController@getDevSearchResults');
+            $router->get('/contact', 'MailController@contactUser');
+        });
 
-      /**
-       * API messages related routes
-       */
-      $router->group(['prefix' => '/messages/users'], function () use ($router) {
-          $router->get('/', 'MessagesController@getOneFromAUser');
-          $router->get('/{id}', 'MessagesController@getAllMessagesFromOneUser');
-          $router->post('/', 'MessagesController@createMessageInDb');
-      });
+        /**
+         * API messages related routes
+         */
+        $router->group(['prefix' => '/messages/users'], function () use ($router) {
+            $router->get('/', 'MessagesController@getOneFromAUser');
+            $router->get('/{id}', 'MessagesController@getAllMessagesFromOneUser');
+            $router->post('/', 'MessagesController@createMessageInDb');
+        });
 
-      /**
-       * API favorites related routes
-       */
-      $router->group(['prefix' => '/favorites'], function () use ($router) {
-          $router->get('/recruiters', 'FavoritesController@getOneFromOneUser');
-          $router->get('/recruiters/{id}', 'FavoritesController@getAllFromOneUser');
-          $router->post('/recruiters', 'FavoritesController@AddNewToProfile');
-          $router->delete('/{id}', 'FavoritesController@delete');
-      });
-    });
+        /**
+         * API favorites related routes
+         */
+        $router->group(['prefix' => '/favorites'], function () use ($router) {
+            $router->get('/recruiters', 'FavoritesController@getOneFromOneUser');
+            $router->get('/recruiters/{id}', 'FavoritesController@getAllFromOneUser');
+            $router->post('/recruiters', 'FavoritesController@AddNewToProfile');
+            $router->delete('/{id}', 'FavoritesController@delete');
+        });
+        });
 
 });
 
 
-
+// V2
 $router->group(['middleware' => 'auth'], function () use ($router) {
     //$router->post('/password/reset-request', 'RequestPasswordController@sendResetLinkEmail');
 });

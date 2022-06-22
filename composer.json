@@ -19,7 +19,9 @@
         "laravel-zero/foundation": "^8.81",
         "laravel/lumen-framework": "^8.3",
         "laravelista/lumen-vendor-publish": "^8.0",
+        "mailjet/laravel-mailjet": "^3.0",
         "nordsoftware/lumen-cors": "^3.5",
+        "thedoctor0/laravel-mailjet-driver": "^1.0",
         "tymon/jwt-auth": "^1.0",
         "wildbit/swiftmailer-postmark": "^3.3"
     },

@@ -40,7 +40,8 @@ class MailController extends Controller
             $receiverMail=$ri->email_address;
         }
 
-        $testEmail = $request->testEmail ;
+        $testEmail = 'milekic.alicia@gmail.com';
+        //$testEmail = $request->testEmail ;
         Mail::to($testEmail)->send(new SendEmail($testEmail, $senderName, $senderMail, $receiverName, $receiverMail, $messageTitle, $messageContent));
 
        $msg = $msgCtrl->createMessageInDb($request);

@@ -112,6 +112,7 @@ $app->register('Nord\Lumen\Cors\CorsServiceProvider');
 //Mail related services providers
 $app->register(Illuminate\Mail\MailServiceProvider::class);
 
+
 $app->alias('mail.manager', Illuminate\Mail\MailManager::class);
 $app->alias('mail.manager', Illuminate\Contracts\Mail\Factory::class);
 
@@ -126,6 +127,10 @@ $app->register(Tymon\JWTAuth\Providers\LumenServiceProvider::class);
 $app->register(Illuminate\Notifications\NotificationServiceProvider::class);
 $app->alias('Notification', Illuminate\Support\Facades\Notification::class);
 
+//Mailjet
+$app->register(Mailjet\LaravelMailjet\MailjetServiceProvider::class);
+//$app->register(Mailjet\LaravelMailjet\MailjetMailServiceProvider::class);
+$app->alias('Mailjet', Mailjet\LaravelMailjet\Facades\Mailjet::class);
 
 /*
 |--------------------------------------------------------------------------
